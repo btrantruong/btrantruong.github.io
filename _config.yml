@@ -1,0 +1,24 @@
+# site settings
+title: Bao Tran Truong
+email: baotrantruong96@gmail.com
+description: I'm a novice programmer and an amateur baker. I want to have my own farm one day.
+baseurl: '' # the subpath of your site, e.g. /blog
+url: "https://btrantruong.github.io"
+author:
+country: US
+
+# homepage tiles
+tiles-source: posts # accepts "posts" or "pages"
+tiles-count: 6
+
+# social settings
+youtube_url: https://youtu.be/X3OLftCKKCY
+github_url: https://github.com/btrantruong
+instagram_url: https://instagram.com
+linkedin_url: https://www.linkedin.com/in/btrantruong
+
+# build settings
+markdown: kramdown
+
+sass:
+  style: compressed
