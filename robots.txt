@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://btrantruong.github.io/about/sitemap.xml
+Sitemap: https://btrantruong.github.io/sitemap.xml
