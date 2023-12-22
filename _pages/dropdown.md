@@ -3,7 +3,7 @@ layout: page
 title: 
 nav: true
 nav_order: 7
-dropdown: true
+dropdown: false
 children:
     - title: blog
       permalink: /blog/

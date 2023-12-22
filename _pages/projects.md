@@ -3,9 +3,9 @@ layout: page
 title: projects
 permalink: /projects/
 description:
-nav: true
+nav: false
 nav_order: 2
-display_categories: [work, fun]
+display_categories: [ongoing, research, undergrad]
 horizontal: false
 ---
 
