@@ -16,6 +16,6 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I’m a Ph.D. candidate in Informatics at Indiana University Bloomington, advised by [Dr. Fil Menczer](https://cnets.indiana.edu/fil/). I develop computational methods to understand human behavior and information dynamics from large-scale data. I combine techniques such as data science, social network analysis, and natural language processing. The goal is to *produce actionable insights for a better online world* 🌟✨
+I’m a Ph.D. candidate in Informatics at Indiana University Bloomington, advised by [Dr. Fil Menczer](https://cnets.indiana.edu/fil/). I develop methods to understand complex networks and systems, especially the diffusion of information on social media platforms. I combine machine learning, data science, and network science techniques to gain insight from large-scale human behavior data. The goal is to *produce actionable insights for a better online world* 🌟✨
 
-At the [Observatory on Social Media](href='https://osome.iu.edu/), I work on ways to combat online misinformation. My research spans from detecting inauthentic actors to developing computational models to measure the impact of social media abuse and propose moderation policies. Beyond that, I envision a revamped online governance that highlights the role of social norms in creating a more trustworthy digital landscape.
+At the [Observatory on Social Media](href='https://osome.iu.edu/), I work on ways to combat online misinformation. My research spans from detecting inauthentic actors, to designing agent-based models that aim at assessing the impacts of social media misuse and recommending effective moderation strategies.
