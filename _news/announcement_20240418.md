@@ -1,6 +1,6 @@
 ---
 layout: post
-title: I will be presenting our work "Quantifying the effects of time delay in illegal content takedown" at [$$IC^{2}S^{2}$$ 2024](https://ic2s2-2024.org/). See you there! 
+title: I will be presenting our work "Quantifying the effects of time delay in illegal content takedown" at [$IC^{2}S^{2}$ 2024](https://ic2s2-2024.org/). See you there! 
 date: 2024-04-18
 inline: false
 related_posts: false
