@@ -6,7 +6,7 @@ subtitle: <a href='https://osome.iu.edu/'>Observatory on Social Media (OSoMe) at
 # tags: computational social science, datasci for social good, misinformation
 profile:
   align: right
-  image: id.png
+  image: id.jpg
   image_circular: true # crops the image to make it circular
   more_info:
 
