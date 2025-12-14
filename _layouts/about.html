@@ -72,10 +72,25 @@ layout: default
     {%- endif %}
 
     <!-- Selected papers -->
-    {% if page.selected_papers -%}
+    {% if page.selected_papers == true -%}
     <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">selected publications</a></h2>
     {%- include selected_papers.html %}
     {%- endif %}
+
+    <!-- Recent papers -->
+    {% if page.recent_papers -%}
+    <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">recent papers</a></h2>
+    {%- include recent_papers.html limit=page.recent_papers %}
+    {%- endif %}
+
+    <!-- Publications -->
+    {% if page.publication == true or page.publications == true -%}
+    <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">publications</a></h2>
+
+      {% bibliography -f {{ site.scholar.bibliography }} %}
+    
+    {%- endif %}
+  
 
     <!-- Social -->
     {%- if page.social %}

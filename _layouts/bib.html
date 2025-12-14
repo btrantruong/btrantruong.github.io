@@ -1,83 +1,95 @@
 ---
 ---
 <!-- _layouts/bib.html -->
-<div class="row">
-  {%- if site.enable_publication_thumbnails and entry.abbr -%}
-  <div class="col-sm-2 abbr">
-    {%- if site.data.venues[entry.abbr] -%}
-    {%- assign venue_style = nil -%}
-    {%- if site.data.venues[entry.abbr].color != blank -%}
-    {%- assign venue_style = site.data.venues[entry.abbr].color | prepend: 'style="background-color:' | append: '"' -%}
-    {%- endif -%}
-    <abbr class="badge" {% if venue_style %}{{venue_style}}{% endif %}><a
-        href="{{site.data.venues[entry.abbr].url}}">{{entry.abbr}}</a></abbr>
-    {%- else -%}
-    <abbr class="badge">{{entry.abbr}}</abbr>
-    {%- endif -%}
-  </div>
-  {%- endif -%}
-
-  <!-- Entry bib key -->
-  <div id="{{entry.key}}" class="{% if site.enable_publication_thumbnails and entry.abbr %}col-sm-8{% else %}col-sm-10{% endif %}">
-    <!-- Author, Title, Journal/Book title and date (LaTeX-style inline) -->
+<div id="{{entry.key}}">
+    <!-- Title, then Authors and Year -->
     <div>
-      {% assign author_array_size = entry.author_array | size %}
+      <!-- Title -->
+      <div>
+        {%- if entry.url -%}<a href="{{entry.url}}"><span class="title">{{entry.title}}</span></a>{%- else -%}<span class="title">{{entry.title}}</span>{%- endif -%}
+      </div>
+      
+      <!-- Authors, Journal/Book title and date -->
+      <div class="author">
+        {% assign author_array_size = entry.author_array | size %}
 
-      {%- for author in entry.author_array -%}
-      {%- assign author_is_self = false -%}
-      {%- assign author_last_name = author.last | remove: "¶" | remove: "&" | remove: "*" | remove: "†" | remove: "^" -%}
-      {%- if site.scholar.last_name contains author_last_name -%}
-      {%- if site.scholar.first_name contains author.first -%}
-      {%- assign author_is_self = true -%}
-      {%- endif -%}
-      {%- endif -%}
-      {%- assign coauthor_url = nil -%}
-      {%- if site.data.coauthors[author_last_name] -%}
-      {%- for coauthor in site.data.coauthors[author_last_name] -%}
-      {%- if coauthor.firstname contains author.first -%}
-      {%- assign coauthor_url = coauthor.url -%}
-      {%- break -%}
-      {%- endif -%}
-      {%- endfor -%}
-      {%- endif -%}
+        {%- for author in entry.author_array -%}
+        {%- assign author_is_self = false -%}
+        {%- assign author_last_name = author.last | remove: "¶" | remove: "&" | remove: "*" | remove: "†" | remove: "^" -%}
+        {%- if site.scholar.last_name contains author_last_name -%}
+        {%- if site.scholar.first_name contains author.first -%}
+        {%- assign author_is_self = true -%}
+        {%- endif -%}
+        {%- endif -%}
+        {%- assign coauthor_url = nil -%}
+        {%- if site.data.coauthors[author_last_name] -%}
+        {%- for coauthor in site.data.coauthors[author_last_name] -%}
+        {%- if coauthor.firstname contains author.first -%}
+        {%- assign coauthor_url = coauthor.url -%}
+        {%- break -%}
+        {%- endif -%}
+        {%- endfor -%}
+        {%- endif -%}
 
-      {%- if author_array_size > 1 -%}
-      {%- if forloop.first == false -%},&nbsp;{%- endif -%}
-      {%- if forloop.last -%}and&nbsp;{%- endif -%}
-      {%- endif -%}
-      {%- if author_is_self -%}
-      <em>{{author.first}} {{author.last}}</em>
-      {%- else -%}
-      {%- if coauthor_url -%}
-      <a href="{{coauthor_url}}">{{author.first}} {{author.last}}</a>
-      {%- else -%}
-      {{author.first}} {{author.last}}
-      {%- endif -%}
-      {%- endif -%}
-      {%- endfor -%}
-      .&nbsp;{%- if entry.url -%}<a href="{{entry.url}}"><span class="title">{{entry.title}}</span></a>{%- else -%}<span class="title">{{entry.title}}</span>{%- endif -%}.
-      {% assign proceedings = "inproceedings,incollection" | split: ','%}
-      {% assign thesis = "thesis,mastersthesis,phdthesis" | split: ','%}
-      {% if entry.type == "article" -%}
-      {%- if entry.journal -%}
-      &nbsp;<em>{{entry.journal}}</em>{%- if entry.year -%}, {{entry.year}}{%- endif -%}.
-      {%- endif -%}
-      {%- elsif proceedings contains entry.type -%}
-      {%- if entry.booktitle -%}
-      &nbsp;<em>In {{entry.booktitle}}</em>{%- if entry.year -%}, {{entry.year}}{%- endif -%}.
-      {%- endif -%}
-      {%- elsif thesis contains entry.type -%}
-      {%- if entry.school -%}
-      &nbsp;<em>{{entry.school}}</em>{%- if entry.year -%}, {{entry.year}}{%- endif -%}.
-      {%- endif -%}
-      {%- else -%}
-      {%- if entry.year -%}
-      &nbsp;{{entry.year}}.
-      {%- endif -%}
-      {%- endif -%}
-      {%- if entry.note -%}
-      &nbsp;{{ entry.note }}.
-      {%- endif -%}
+        {%- if author_array_size > 1 -%}
+        {%- if forloop.first == false -%},&nbsp;{%- endif -%}
+        {%- if forloop.last -%}and&nbsp;{%- endif -%}
+        {%- endif -%}
+        {%- if author_is_self -%}
+        <span class="author-self">{{author.first}} {{author.last}}</span>
+        {%- else -%}
+        {%- if coauthor_url -%}
+        <a href="{{coauthor_url}}">{{author.first}} {{author.last}}</a>
+        {%- else -%}
+        {{author.first}} {{author.last}}
+        {%- endif -%}
+        {%- endif -%}
+        {%- endfor -%}
+        {% assign proceedings = "inproceedings,incollection" | split: ','%}
+        {% assign thesis = "thesis,mastersthesis,phdthesis" | split: ','%}
+        {% if entry.type == "article" -%}
+        {%- if entry.journal -%}
+        .&nbsp;<em>{{entry.journal}}</em>{%- if entry.year -%}, {{entry.year}}{%- endif -%}.
+        {%- else -%}
+        {%- if entry.year -%}
+        .&nbsp;{{entry.year}}.
+        {%- endif -%}
+        {%- endif -%}
+        {%- elsif entry.type == "misc" -%}
+        {%- if entry.addendum -%}
+        .&nbsp;<em>{{entry.addendum}}</em>{%- if entry.year -%}, {{entry.year}}{%- endif -%}.
+        {%- elsif entry.howpublished -%}
+        .&nbsp;<em>{{entry.howpublished}}</em>{%- if entry.year -%}, {{entry.year}}{%- endif -%}.
+        {%- else -%}
+        {%- if entry.year -%}
+        .&nbsp;{{entry.year}}.
+        {%- endif -%}
+        {%- endif -%}
+        {%- elsif proceedings contains entry.type -%}
+        {%- if entry.booktitle -%}
+        .&nbsp;<em>In {{entry.booktitle}}</em>{%- if entry.year -%}, {{entry.year}}{%- endif -%}.
+        {%- else -%}
+        {%- if entry.year -%}
+        .&nbsp;{{entry.year}}.
+        {%- endif -%}
+        {%- endif -%}
+        {%- elsif thesis contains entry.type -%}
+        {%- if entry.school -%}
+        .&nbsp;<em>{{entry.school}}</em>{%- if entry.year -%}, {{entry.year}}{%- endif -%}.
+        {%- else -%}
+        {%- if entry.year -%}
+        .&nbsp;{{entry.year}}.
+        {%- endif -%}
+        {%- endif -%}
+        {%- else -%}
+        {%- if entry.year -%}
+        .&nbsp;{{entry.year}}.
+        {%- endif -%}
+        {%- endif -%}
+        {%- if entry.note -%}
+        &nbsp;{{ entry.note }}.
+        {%- endif -%}
+      </div>
     </div>
 
     <!-- Links/Buttons -->
@@ -171,5 +183,4 @@
       {% highlight bibtex %}{{ entry.bibtex | hideCustomBibtex }}{% endhighlight %}
     </div>
     {%- endif %}
-  </div>
 </div>
