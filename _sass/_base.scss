@@ -713,6 +713,15 @@ footer.sticky-bottom {
         font-weight: bolder;
       }
 
+      a .title {
+        color: var(--global-theme-color);
+        
+        &:hover {
+          color: var(--global-hover-color);
+          text-decoration: underline;
+        }
+      }
+
       .author {
         a {
           border-bottom: 1px dashed var(--global-theme-color);
