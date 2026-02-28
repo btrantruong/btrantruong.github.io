@@ -23,5 +23,5 @@ I use both controlled experimentation and data-driven methods such as machine le
 
 I'm currently a Research associate working with [Dr. Philipp Lorenz-Spreen](https://synosys.github.io/authors/philipp/) at the [Computational Social Science group](https://css-synosys.github.io) of TU Dresden [Center Synergy of Systems](https://synosys.github.io/).
 
-I have a Ph.D. candidate in Informatics at Indiana University Bloomington, advised by [Dr. Fil Menczer](https://cnets.indiana.edu/fil/). Previously, at the [Observatory on Social Media](href='https://osome.iu.edu/), I worked on social media moderation. I developed methods to detect online misinformation and inauthentic coordination, and modeled the impacts of deterrence strategies.
+I received a Ph.D. in Informatics at Indiana University Bloomington, advised by [Dr. Fil Menczer](https://cnets.indiana.edu/fil/). Previously, at the [Observatory on Social Media](href='https://osome.iu.edu/), I worked on social media moderation. I developed methods to detect online misinformation and inauthentic coordination, and modeled the impacts of deterrence strategies.
 
